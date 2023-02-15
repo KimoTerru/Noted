@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name">Noted</string>
-    <string name="sort_by">Sort by</string>
-    <string name="add_new_note">Add new note</string>
-    <string name="save">save</string>
-    <string name="your_notes">Your notes</string>
-    <string name="change_note">Change note</string>
-    <string name="delete">Delete</string>
-    <string name="search">Search</string>
-    <string name="description">Description</string>
-    <string name="title">Tittle</string>
-    <string name="update">Update</string>
+    <string name="app_name">Эскертүүлөр</string>
+    <string name="sort_by">Түрү</string>
+    <string name="add_new_note">Жаңы эскертүү кошуy</string>
+    <string name="save">Сактоо</string>
+    <string name="your_notes">Сиздин жазуулар</string>
+    <string name="change_note">Изменить заметку</string>
+    <string name="delete">Чыгаруу</string>
+    <string name="search">Издөө</string>
+    <string name="description">Баяндоо</string>
+    <string name="title">Аталышы</string>
+    <string name="update">Жаңыртуу</string>
 
     <string name="example_tittle">Жизнь без любви – это все равно, что сказка без счастливого конца. По-настоящему человек может быть счастлив только тогда, когда ему есть, кого любить и о ком заботиться.
 Любовь может быть с первого взгляда, когда для того, чтобы понять, что судьба подарила встречу со второй половинкой, достаточно только улыбки. А может, наоборот, долго созревать, как пшеничное зернышко.

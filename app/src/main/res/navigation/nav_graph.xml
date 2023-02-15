@@ -9,11 +9,23 @@
         android:id="@+id/fragment_home"
         android:name="com.kimoterru.noted.presenter.home.HomeFragment"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_detail_note"
+            app:destination="@id/fragment_detail_note" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_new_note"
+            app:destination="@id/fragment_new_note" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_new_note"
+        android:name="com.kimoterru.noted.presenter.newNote.NewNoteFragment"
+        tools:layout="@layout/fragment_new_note">
     </fragment>
 
     <fragment
         android:id="@+id/fragment_detail_note"
-        android:name="com.kimoterru.noted.presenter.detail.DetailNoteFragment"
+        android:name="com.kimoterru.noted.presenter.detailNote.DetailNoteFragment"
         tools:layout="@layout/fragment_detail_note">
     </fragment>
 

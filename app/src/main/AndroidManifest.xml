@@ -9,9 +9,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Noted"
-        android:name=".presenter.NoteApplication">
+        android:name=".NoteApplication">
         <activity
             android:name=".presenter.MainActivity"
+            android:theme="@style/Theme.Noted.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

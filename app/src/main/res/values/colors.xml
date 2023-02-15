@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="my_bar_color">@android:color/transparent</color>
+    <color name="my_dynamic_color">@android:color/system_accent3_10</color>
+    <color name="icon_color_day_night">#000000</color>
+    <color name="splash_screen_icon">#000000</color>
 </resources>

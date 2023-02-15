@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/detail_note_view"
+        android:id="@+id/new_note_view"
         layout="@layout/note_view"/>
 
 </FrameLayout>

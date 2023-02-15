@@ -1,4 +1,4 @@
-package com.kimoterru.noted.presenter.detail
+package com.kimoterru.noted.presenter.detailNote
 
 import androidx.lifecycle.ViewModel
 
