@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Noted" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="android:statusBarColor">@color/my_bar_color</item>
+        <item name="android:navigationBarColor">@color/my_bar_color</item>
+    </style>
+</resources>
