@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Заметки</string>
     <string name="sort_by">Сортировать</string>
-    <string name="add_new_note">Добавить новую заметку</string>
+    <string name="add_new_note">Добавить заметку</string>
     <string name="save">Сохранить</string>
     <string name="your_notes">Ваши заметки</string>
     <string name="change_note">Изменить заметку</string>
@@ -10,6 +10,7 @@
     <string name="description">Описание</string>
     <string name="title">Заголовок</string>
     <string name="update">Обновить</string>
+    <string name="done">Готово</string>
 
     <string name="example_tittle">Жизнь без любви – это все равно, что сказка без счастливого конца. По-настоящему человек может быть счастлив только тогда, когда ему есть, кого любить и о ком заботиться.
 Любовь может быть с первого взгляда, когда для того, чтобы понять, что судьба подарила встречу со второй половинкой, достаточно только улыбки. А может, наоборот, долго созревать, как пшеничное зернышко.

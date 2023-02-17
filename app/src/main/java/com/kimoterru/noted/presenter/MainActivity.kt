@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupActionBar(title: String) {
         supportActionBar?.apply {
             setTitle(title)
-            elevation = 0f
-            setBackgroundDrawable(ColorDrawable(getColor(R.color.my_dynamic_color)))
+            setBackgroundDrawable(ColorDrawable(getColor(R.color.dynamic_color_for_theme)))
         }
     }
 }

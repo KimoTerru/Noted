@@ -27,6 +27,10 @@
         android:id="@+id/fragment_detail_note"
         android:name="com.kimoterru.noted.presenter.detailNote.DetailNoteFragment"
         tools:layout="@layout/fragment_detail_note">
+        <argument
+            android:name="id_note"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
 </navigation>

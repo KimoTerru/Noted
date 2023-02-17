@@ -11,16 +11,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:spanCount="2"
+        android:clipToPadding="false"
+        android:paddingTop="5dp"
+        android:paddingBottom="80dp"
         android:paddingHorizontal="5dp"
         tools:listitem="@layout/item_note"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/add_new_note_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/add_new_note"
         app:icon="@drawable/ic_add" />
 
