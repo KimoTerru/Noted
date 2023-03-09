@@ -2,17 +2,16 @@ package com.kimoterru.noted.presenter.home
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.kimoterru.noted.R
 import com.kimoterru.noted.databinding.FragmentHomeBinding
-import com.kimoterru.noted.presenter.util.NoteClickInterface
-import com.kimoterru.noted.presenter.util.addMenuProvider
-import com.kimoterru.noted.presenter.util.setOnQueryListener
+import com.kimoterru.noted.presenter.util.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,6 +20,7 @@ class HomeFragment: Fragment(R.layout.fragment_home), NoteClickInterface {
 
     private val binding: FragmentHomeBinding by viewBinding()
     private val viewModel: HomeViewModel by viewModel()
+
     private val homeAdapter by lazy {
         HomeAdapter(this)
     }
@@ -34,7 +34,10 @@ class HomeFragment: Fragment(R.layout.fragment_home), NoteClickInterface {
         addNewNoteView.setOnClickListener {
             findNavController().navigate(R.id.action_fragment_home_to_fragment_new_note)
         }
+        val sGrid = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        sGrid.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
         notesRecyclerView.apply {
+            layoutManager = sGrid
             adapter = homeAdapter
         }
         addMenu()
@@ -53,19 +56,42 @@ class HomeFragment: Fragment(R.layout.fragment_home), NoteClickInterface {
         onCreateMenu = { menu ->
             val searchView = menu.findItem(R.id.action_search).actionView as SearchView
             searchView.setOnQueryListener {
-              /* Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()*/ // TODO: fix this is moment 
+              viewModel.searchWordInNote(it)
+                homeAdapter.refresh()
             }
         },
 
         onMenuItemSelected = {
             when (it.itemId) {
-                R.id.action_sort -> Toast.makeText(context, getText(R.string.sort_by), Toast.LENGTH_SHORT).show()
+                R.id.action_sort_first_old -> {
+                    viewModel.sortByNotes(SORT_BY_OLD_NOTES)
+                    homeAdapter.refresh()
+                }
+                R.id.action_sort_first_new -> {
+                    viewModel.sortByNotes(SORT_BY_NEW_NOTES)
+                    homeAdapter.refresh()
+                }
+                R.id.action_delete_all -> {
+                    makeSure()
+                }
                 android.R.id.home -> findNavController().popBackStack()
             }
         }
     )
 
+    private fun makeSure() {
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle(getText(R.string.requst_to_delete))
+            .setNegativeButton(getText(R.string.no)) { dialog, _ -> dialog.dismiss() }
+            .setPositiveButton(getText(R.string.yes)) { _, _ ->
+                viewModel.deleteAllNotes()
+                homeAdapter.refresh()
+            }
+        dialog.create().show()
+    }
+
     override fun clickOnNote(id: Int) {
         findNavController().navigate(HomeFragmentDirections.actionFragmentHomeToFragmentDetailNote(idNote = id))
     }
+
 }

@@ -42,7 +42,9 @@ class HomeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         return HomeViewHolder(
-            ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            ItemNoteBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            ),
             listener
         )
     }

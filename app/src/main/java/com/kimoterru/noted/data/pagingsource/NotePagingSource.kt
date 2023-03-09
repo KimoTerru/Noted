@@ -7,7 +7,9 @@ import com.kimoterru.noted.data.mapper.toNoteItem
 import com.kimoterru.noted.domain.model.NoteItem
 
 class NotePagingSource(
-    private val noteDao: NoteDao
+    private val noteDao: NoteDao,
+    private val searchBy: String,
+    private val sortBy: Int
 ): PagingSource<Int, NoteItem>() {
 
     override fun getRefreshKey(state: PagingState<Int, NoteItem>): Int? {
@@ -20,7 +22,9 @@ class NotePagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NoteItem> {
         return try {
             val pageIndex = params.key ?: 0
-            val response = noteDao.getAllNoteFromLocal(
+            val response = noteDao.getAllNotes(
+                searchBy,
+                sortBy,
                 params.loadSize,
                 pageIndex * params.loadSize
             ).map {

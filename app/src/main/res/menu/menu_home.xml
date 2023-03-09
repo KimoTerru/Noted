@@ -9,10 +9,29 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom"/>
 
+    <group>
+        <item
+            android:id="@+id/action_sort"
+            android:title="@string/sort_by"
+            android:icon="@drawable/ic_sort"
+            app:showAsAction="always">
+
+            <menu>
+                <item
+                    android:id="@+id/action_sort_first_new"
+                    android:title="@string/recently_added" />
+
+                <item
+                    android:id="@+id/action_sort_first_old"
+                    android:title="@string/long_added" />
+            </menu>
+        </item>
+    </group>
+
     <item
-        android:id="@+id/action_sort"
-        android:title="@string/sort_by"
-        android:icon="@drawable/ic_sort"
-        app:showAsAction="always"/>
+        android:id="@+id/action_delete_all"
+        android:title="@string/delete_all"
+        android:icon="@drawable/ic_trash"
+        app:showAsAction="always" />
 
 </menu>

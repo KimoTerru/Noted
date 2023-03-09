@@ -3,6 +3,7 @@ package com.kimoterru.noted.presenter.util
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import androidx.annotation.MenuRes
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuProvider
@@ -58,4 +59,24 @@ fun SearchView.setOnQueryListener(onQueryListener: OnQueryListener) {
             return true
         }
     })
+}
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.isVisible(show: Boolean) {
+    if (show) {
+        visible()
+    } else {
+        gone()
+    }
 }

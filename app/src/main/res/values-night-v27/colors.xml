@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dynamic_color_for_theme">#0b50c3</color>
+    <color name="dynamic_color_for_item_rv">#0b50c3</color>
+
+    <color name="icon_color_day_night">#000000</color>
+    <color name="splash_screen_icon">#000000</color>
+    <color name="black">#000000</color>
+</resources>

@@ -22,7 +22,7 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
         newNoteScreenSetup()
     }
 
-    private fun newNoteScreenSetup() = with(binding) {
+    private fun newNoteScreenSetup() {
         addMenu()
     }
 

@@ -9,7 +9,7 @@ class GetNoteListFromLocalUseCase(
     private val repository: NoteRepository
 ) {
 
-    suspend fun invoke(): Flow<PagingData<NoteItem>> {
+    fun invoke(): Flow<PagingData<NoteItem>> {
         return repository.getNoteListFromLocal()
     }
 }

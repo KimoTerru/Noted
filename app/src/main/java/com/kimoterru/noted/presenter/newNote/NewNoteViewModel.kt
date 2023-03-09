@@ -4,7 +4,6 @@ import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kimoterru.noted.R
 import com.kimoterru.noted.domain.model.NoteItem
 import com.kimoterru.noted.domain.usecase.newnote.SaveNoteInLocalUseCase
 import kotlinx.coroutines.launch

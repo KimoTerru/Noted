@@ -6,19 +6,28 @@ import com.kimoterru.noted.data.local.model.NoteEntity
 @Dao
 interface NoteDao {
 
-    @Query("SELECT * FROM note_table ORDER BY id ASC LIMIT :limit OFFSET :offset")
-    suspend fun getAllNoteFromLocal(limit: Int, offset: Int): List<NoteEntity>
+    @Query(
+        "SELECT * FROM note_table " +
+                "WHERE :searchBy = '' OR content LIKE '%' || :searchBy || '%'" +
+                "ORDER BY " +
+                "CASE WHEN :sortBy = 1 THEN id END ASC, " +
+                "CASE WHEN :sortBy = 2 THEN id END DESC " + "LIMIT :limit OFFSET :offset"
+    )
+    suspend fun getAllNotes(searchBy: String, sortBy: Int, limit: Int, offset: Int): List<NoteEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveNoteInLocal(vararg noteEntity: NoteEntity)
+    suspend fun saveNote(vararg noteEntity: NoteEntity)
 
     @Delete
-    suspend fun deleteNoteFromLocal(noteEntity: NoteEntity)
+    suspend fun deleteNote(noteEntity: NoteEntity)
 
     @Update
-    suspend fun updateNoteInLocal(noteEntity: NoteEntity)
+    suspend fun updateNote(noteEntity: NoteEntity)
 
     @Query("SELECT * FROM note_table WHERE id IN (:id)")
     suspend fun getNoteById(id: Int): NoteEntity
+
+    @Query("DELETE FROM note_table")
+    suspend fun deleteAll()
 
 }

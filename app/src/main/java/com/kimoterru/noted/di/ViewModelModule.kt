@@ -16,7 +16,10 @@ val viewModelModule = module {
 
     viewModel {
         HomeViewModel(
-            getNoteListFromLocalUseCase = get()
+            getNoteListFromLocalUseCase = get(),
+            setSearchByUseCase = get(),
+            setSortByUseCase = get(),
+            deleteAllNotesFromLocalUseCase = get()
         )
     }
 
