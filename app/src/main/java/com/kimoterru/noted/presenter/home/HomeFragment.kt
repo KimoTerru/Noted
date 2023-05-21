@@ -1,17 +1,24 @@
 package com.kimoterru.noted.presenter.home
 
 import android.os.Bundle
-import android.view.*
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.kimoterru.noted.R
 import com.kimoterru.noted.databinding.FragmentHomeBinding
-import com.kimoterru.noted.presenter.util.*
+import com.kimoterru.noted.presenter.util.NoteClickInterface
+import com.kimoterru.noted.presenter.util.SORT_BY_NEW_NOTES
+import com.kimoterru.noted.presenter.util.SORT_BY_OLD_NOTES
+import com.kimoterru.noted.presenter.util.addMenuProvider
+import com.kimoterru.noted.presenter.util.gone
+import com.kimoterru.noted.presenter.util.setOnQueryListener
+import com.kimoterru.noted.presenter.util.visible
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -42,6 +49,19 @@ class HomeFragment: Fragment(R.layout.fragment_home), NoteClickInterface {
         }
         addMenu()
         initObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        homeAdapter.addLoadStateListener {
+            if (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && homeAdapter.itemCount < 1) {
+                binding.notesRecyclerView.gone()
+                binding.emptyAnim.visible()
+            } else {
+                binding.notesRecyclerView.visible()
+                binding.emptyAnim.gone()
+            }
+        }
     }
 
     private fun initObservers() = lifecycleScope.launch {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dynamic_color_for_theme">@android:color/system_neutral1_900</color>
+    <color name="dynamic_color_for_theme">@android:color/system_accent1_600</color>
     <color name="dynamic_color_for_item_rv">@android:color/system_accent1_400</color>
 
     <color name="black_white_color">#D3D3D3</color>

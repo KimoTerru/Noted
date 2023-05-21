@@ -14,7 +14,19 @@
         android:paddingTop="5dp"
         android:paddingBottom="80dp"
         android:paddingHorizontal="5dp"
-        tools:listitem="@layout/item_note" />
+        tools:listitem="@layout/item_note"
+        android:visibility="gone"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/empty_anim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/not_found"
+        android:visibility="gone"
+        />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/add_new_note_view"
